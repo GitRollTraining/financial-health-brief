@@ -49,7 +49,7 @@ Follow the [Agent Skills specification](https://agentskills.io/specification).
 Validate the package before submission:
 
 ```bash
-skills-ref validate ./daily-financial-health-brief
+uvx --from skills-ref agentskills validate ./daily-financial-health-brief
 ```
 
 ### Reproducible execution
