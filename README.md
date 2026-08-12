@@ -64,6 +64,8 @@ Document the following in `SKILL.md` so another operator can run the work withou
 
 The implementation must process the supplied source data end to end and produce all four deliverables. Do not rely only on fixed download filenames or a fixed column order: source names, extra columns, formats, dates, or snapshot versions may change.
 
+Preserve an explicitly unknown amount as unknown with a blank numeric value. Do not convert it to zero or include it in totals. Reconcile posted transaction categories to the current budget, and distinguish a category with no observed activity from missing source evidence.
+
 ### Deliverables
 
 Write normalized source data to:
@@ -72,7 +74,7 @@ Write normalized source data to:
 - `deliverables/normalized/budget.csv`
 - `deliverables/normalized/revenue.csv`
 
-Write the management brief to `deliverables/report.md`. The brief must identify its reporting period and source versions, explain the results with traceable evidence, separate unresolved data, and clearly identify questions that still require human review.
+Write the management brief to `deliverables/report.md`. The brief must identify its reporting period and source versions, explain the results with traceable evidence, separate pending, disputed, unknown, and missing data, and clearly identify questions that still require human review.
 
 ## Safety and submission rules
 
