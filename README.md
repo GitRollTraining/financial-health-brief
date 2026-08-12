@@ -4,6 +4,8 @@ Build a reusable Agent Skill that turns the provided financial source data into 
 
 You will interview a Finance and Operations Manager to understand the reporting request, workflow, data sources, and decision boundaries. The stakeholder shares source links only when they are relevant to the problem you are currently solving, so explain what you need and why.
 
+The stakeholder explains company-specific business rules and escalation paths. You are responsible for designing an efficient, reliable, reproducible, and safe automation; do not expect the stakeholder to choose your implementation, libraries, validation architecture, or test strategy.
+
 ## Start the project
 
 1. Fork this repository to your own GitHub account.
@@ -64,7 +66,9 @@ Document the following in `SKILL.md` so another operator can run the work withou
 
 The implementation must process the supplied source data end to end and produce all four deliverables. Do not rely only on fixed download filenames or a fixed column order: source names, extra columns, formats, dates, or snapshot versions may change.
 
-Preserve an explicitly unknown amount as unknown with a blank numeric value. Do not convert it to zero or include it in totals. Reconcile posted transaction categories to the current budget, and distinguish a category with no observed activity from missing source evidence.
+Use one programmatic run rather than manual per-row handling or hard-coded expected output. Validate inputs before leaving usable deliverables, make unchanged reruns deterministic, and explain safe failure behavior.
+
+Use the stakeholder interview to discover the applicable reporting rules, source semantics, exception handling, ownership, and human-review boundaries. Encode those requirements in the skill without copying private prompts or inventing missing business decisions.
 
 ### Deliverables
 
@@ -74,7 +78,7 @@ Write normalized source data to:
 - `deliverables/normalized/budget.csv`
 - `deliverables/normalized/revenue.csv`
 
-Write the management brief to `deliverables/report.md`. The brief must identify its reporting period and source versions, explain the results with traceable evidence, separate pending, disputed, unknown, and missing data, and clearly identify questions that still require human review.
+Write the management brief to `deliverables/report.md`. The brief must satisfy the manager's request and the business rules discovered in the interview, support its conclusions with traceable source evidence, and identify unresolved questions that still require human review.
 
 ## Safety and submission rules
 
