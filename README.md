@@ -1,4 +1,4 @@
-# Project 1: Financial Health Brief
+# Case A: Financial Health Brief
 
 Build a reusable Agent Skill that turns the provided financial source data into normalized CSV files and a concise daily management brief.
 
