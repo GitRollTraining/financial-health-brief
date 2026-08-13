@@ -1,4 +1,4 @@
-# Case A: Financial Health Brief
+# Daily Financial Health and Budget Brief
 
 Build a reusable Agent Skill that freshly reads changing financial data from three Google Sheets URLs and turns the current source snapshot into normalized CSV files and a concise daily management brief.
 
