@@ -82,7 +82,7 @@ Write normalized source data to:
 
 Preserve every recognized source row. Extra source columns do not have to appear in normalized output unless they carry business meaning needed for traceability or review.
 
-Write the management brief to `deliverables/report.md`. The brief must satisfy the manager's request and the business rules discovered in the interview, support its conclusions with traceable source evidence, and identify unresolved questions that still require human review. Both the run log and report must record each source URL or spreadsheet identity, sheet or tab identity, fetch timestamp, source version, and fetched row count before output publication so the submitted normalized CSVs represent an auditable execution snapshot.
+Write the management brief to `deliverables/report.md`. The brief must satisfy the manager's request and the business rules discovered in the interview, support its conclusions with traceable source evidence, and identify unresolved questions that still require human review. Before publishing outputs, print each source URL or spreadsheet identity, sheet or tab identity, fetch timestamp, source version, and fetched row count so the existing Entire transcript captures the fetch evidence; record the same metadata in `report.md`. This console output is not an additional submitted log file.
 
 ## Safety and submission rules
 
