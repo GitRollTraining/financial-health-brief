@@ -74,9 +74,11 @@ Use the stakeholder interview to discover the applicable reporting rules, source
 
 Write normalized source data to:
 
-- `deliverables/normalized/transactions.csv`
-- `deliverables/normalized/budget.csv`
-- `deliverables/normalized/revenue.csv`
+- `deliverables/normalized/transactions.csv` with `transaction_id`, `date`, `account`, `category`, `description`, `amount`, `currency`, `status`, `source`, `source_version`, and `amount_status`;
+- `deliverables/normalized/budget.csv` with `period`, `category`, `budget_amount`, `currency`, `owner`, `review_rule`, `source`, and `source_version`; and
+- `deliverables/normalized/revenue.csv` with `date`, `source`, `metric`, `value`, `currency`, and `source_version`.
+
+Preserve every recognized source row. Extra source columns do not have to appear in normalized output unless they carry business meaning needed for traceability or review.
 
 Write the management brief to `deliverables/report.md`. The brief must satisfy the manager's request and the business rules discovered in the interview, support its conclusions with traceable source evidence, and identify unresolved questions that still require human review.
 
