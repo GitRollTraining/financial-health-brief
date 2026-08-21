@@ -10,7 +10,7 @@ The stakeholder explains company-specific business rules and escalation paths. Y
 
 1. Fork this repository to your own GitHub account.
 2. Clone your fork and work on its `main` branch.
-3. Open the [Project A interview scenario](https://work-sim-alpha.catalyte.ai/s/interview-r62mbg), use the one-time access code provided by the facilitator, and interview the Finance and Operations Manager in English.
+3. Open the [Project A interview scenario](https://work-sim-alpha.catalyte.ai/s/interview-r62mbg) and interview the Finance and Operations Manager in English.
 4. Implement and run the skill directly against the three Google Sheets URLs disclosed during the interview.
 5. Validate the skill and its outputs.
 6. Push the completed repository to your fork's `main` branch.
