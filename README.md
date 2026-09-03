@@ -14,6 +14,7 @@ The stakeholder explains company-specific business rules and escalation paths. Y
 4. Implement and run the skill directly against the three Google Sheets URLs disclosed during the interview.
 5. Validate the skill and its outputs.
 6. Push the completed repository to your fork's `main` branch.
+7. Confirm the submission on GitHub. Open your fork in a browser and check two things: `main` shows your commits, and the branch list includes `entire/checkpoints/v1`. Assessment reads your fork, not your laptop, and telling your agent to submit is not a submission. If `main` has no commits from you, ask your agent to push. If `entire/checkpoints/v1` is missing, stop and ask the facilitator: session records cannot be recreated afterwards.
 
 Do not create a separate session-log file. The supported environment records the work on the `entire/checkpoints/v1` branch automatically. Do not edit, rewrite, or delete that branch.
 
@@ -95,4 +96,4 @@ Write the management brief to `deliverables/report.md`. The brief must satisfy t
 - Commit all required implementation and deliverable files to your fork's `main` branch.
 - Keep the automatically managed `entire/checkpoints/v1` branch intact.
 
-Before pushing, confirm that all required paths exist, the skill validator passes, the documented command succeeds from a clean checkout, and the report agrees with the normalized CSV files.
+Before pushing, confirm that all required paths exist, the skill validator passes, the documented command succeeds from a clean checkout, and the report agrees with the normalized CSV files. After pushing, confirm on GitHub that both `main` and `entire/checkpoints/v1` carry your work (step 7).
