@@ -18,6 +18,8 @@ The stakeholder explains company-specific business rules and escalation paths. Y
 
 Do not create a separate session-log file. The supported environment records the work on the `entire/checkpoints/v1` branch automatically. Do not edit, rewrite, or delete that branch.
 
+**Interview rule.** You conduct the stakeholder interview yourself, and the questions are yours. Do not connect a coding agent or any other AI to the interview to run, script, or automate it. The interview transcript is assessed together with the code; a project whose interview was run by an agent is not scored.
+
 ## Required submission
 
 Your completed repository must contain:
