@@ -1,99 +1,54 @@
 # Daily Financial Health and Budget Brief
 
-Build a reusable Agent Skill that freshly reads changing financial data from three Google Sheets URLs and turns the current source snapshot into normalized CSV files and a concise daily management brief.
+You have joined Quillhaven Academy as an automation specialist. Interview the Finance and Operations Manager to understand how the Daily Financial Health Brief is produced and to obtain only the data needed for the work at hand.
 
-You will interview a Finance and Operations Manager to understand the reporting request, workflow, data sources, and decision boundaries. The stakeholder shares source links only when they are relevant to the problem you are currently solving, so explain what you need and why.
+**Interview rule.** You conduct the stakeholder interview yourself, and the questions are yours. Do not connect a coding agent or any other AI to the interview to run, script, or automate it. The facilitator must provide a verified interview recording/export route and associate it with you and this project before interview evidence is assessed. A missing platform record is not your performance failure. A human-assessed interview must be conducted by you; an internal authoring Agent trial is a separate test.
 
-The stakeholder explains company-specific business rules and escalation paths. You are responsible for designing an efficient, reliable, reproducible, and safe automation; do not expect the stakeholder to choose your implementation, libraries, validation architecture, or test strategy.
+Build an Agent Skills-compliant skill named `daily-financial-health-brief`. Another operator must be able to use it to fetch the current data directly from the three disclosed Google Sheets URLs on every invocation, inspect the source schemas, normalize the three financial datasets, validate the inputs, and produce a traceable management brief without editing a source system or performing a financial action.
 
-## Start the project
+Your automation—not the stakeholder—must supply the implementation knowledge needed to make this efficient, reliable, reproducible, and safe. Design one programmatic end-to-end run, validate before producing usable outputs, preserve signed credits and unknown states, support deterministic reruns, and avoid manual per-row processing or hard-coded expected answers.
 
-1. Fork this repository to your own GitHub account.
-2. Clone your fork and work on its `main` branch.
-3. Open the [Project A interview scenario](https://work-sim-alpha.catalyte.ai/s/interview-r62mbg) and interview the Finance and Operations Manager in English.
-4. Implement and run the skill directly against the three Google Sheets URLs disclosed during the interview.
-5. Validate the skill and its outputs.
-6. Push the completed repository to your fork's `main` branch.
-7. Confirm the submission on GitHub. Open your fork in a browser and check two things: `main` shows your commits, and the branch list includes `entire/checkpoints/v1`. Assessment reads your fork, not your laptop, and telling your agent to submit is not a submission. If `main` has no commits from you, ask your agent to push. If `entire/checkpoints/v1` is missing, stop and ask the facilitator: session records cannot be recreated afterwards.
+Your repository must contain:
 
-Do not create a separate session-log file. The supported environment records the work on the `entire/checkpoints/v1` branch automatically. Do not edit, rewrite, or delete that branch.
+- `daily-financial-health-brief/SKILL.md` with valid `name` and `description` frontmatter;
+- an executable implementation under `daily-financial-health-brief/scripts/`;
+- focused operating knowledge under `daily-financial-health-brief/references/`;
+- `deliverables/normalized/transactions.csv`;
+- `deliverables/normalized/budget.csv`;
+- `deliverables/normalized/revenue.csv`; and
+- `deliverables/report.md`.
 
-## Required submission
+The normalized CSV contracts are:
 
-Your completed repository must contain:
+- `transactions.csv`: `transaction_id`, `date`, `account`, `category`, `description`, `amount`, `currency`, `status`, `source`, `source_version`, `amount_status`;
+- `budget.csv`: `period`, `category`, `budget_amount`, `currency`, `owner`, `review_rule`, `source`, `source_version`; and
+- `revenue.csv`: `date`, `source`, `metric`, `value`, `currency`, `source_version`.
 
-```text
-daily-financial-health-brief/
-├── SKILL.md
-├── scripts/
-│   └── <executable implementation>
-└── references/
-    └── <focused domain or data references>
-deliverables/
-├── normalized/
-│   ├── transactions.csv
-│   ├── budget.csv
-│   └── revenue.csv
-└── report.md
-```
+Preserve every recognized source row. Use exactly the disclosed normalized columns. Unrelated extra source columns need not appear there; preserve additional meaningful source information in source-linked report notes rather than silently dropping it or changing the public CSV shape. A source change that alters required business meaning needs clarification and a refreshed assessment basis.
 
-### Agent Skill
+Use relative paths from the skill root, keep secrets out of the repository, and preserve the Entire branch created during your work. Treat the disclosed Google Sheets URLs as runtime inputs: each run must perform a fresh read of all three viewer-only Sheets rather than use a bundled, manually downloaded, or previously cached CSV as its primary input. Before outputs are published, print each source URL or spreadsheet identity, sheet/tab identity, fetch timestamp, source version, and fetched row count so the existing Entire transcript captures the evidence; record the same metadata in `report.md`. If a Sheet cannot be fetched or validated, fail safely instead of silently reusing an older local copy. Challenge A assessment uses the current fixed source versions, but the implementation must still identify source roles from field meaning rather than hard-code filenames, column positions, or expected answer values. If a required source is invalid or unavailable, fail safely and identify the needed clarification. A valid source that lacks a required comparison-date record may support other conclusions: explicitly withhold the missing comparison and identify its owner. Valid explicit unknown pending/disputed amounts are supported business states: retain them as unresolved, omit only their numeric contribution, and continue conclusions supported by the remaining valid evidence.
 
-Follow the [Agent Skills specification](https://agentskills.io/specification).
+Preserve explicit unknown amounts as unknown with a blank numeric value; never convert them to zero or include them in totals. Preserve confirmed negative posted credits or corrections with their sign. Reconcile posted transaction categories to the current budget, distinguish a category with no observed activity from missing source evidence, and retain current-month unresolved items even when they predate the report day.
 
-- Keep the skill directory name exactly `daily-financial-health-brief`.
-- Add YAML frontmatter to `daily-financial-health-brief/SKILL.md` with both `name` and `description`.
-- Set `name: daily-financial-health-brief` so the skill name matches the directory.
-- Make the description state what the skill does and when an agent should activate it.
-- Put executable data-processing and report-generation code in `scripts/`.
-- Put focused, on-demand workflow or data references in `references/`.
-- Refer to files using paths relative to the skill root.
+Interview entry: [Finance and Operations Manager](https://work-sim-alpha.catalyte.ai/s/interview-r62mbg). The facilitator must confirm the current scenario version and the recording/submission route before the assessed interview.
 
-Validate the package before submission:
+## Reporting commission and completion states
 
-```bash
-uvx --from skills-ref agentskills validate ./daily-financial-health-brief
-```
+The current business request is for the Aug 12, 2026 operations meeting: reporting date Aug 11, comparison Aug 10 and August budget. Confirm it through the stakeholder. All three Sheets remain runtime inputs; wall-clock retrieval time is recorded separately. A reusable implementation accepts reporting context explicitly rather than embedding expected answers.
 
-### Reproducible execution
+A complete submission hands over a supported draft, not a financial decision. Report current/prior daily posted totals and signed change; keep current daily pending/disputed confirmed amounts separate; reconcile each budget category's MTD spend, budget, signed variance and materiality; compare collected revenue and outstanding balances; retain the complete current-month unresolved queue. Show context, source versions and limitations with sufficient evidence for the manager to review. Required business meanings and thresholds are available through the stakeholder, without a secret question.
 
-Document the following in `SKILL.md` so another operator can run the work without guessing:
+- Supported: all required sources are valid; all four named files exist and agree. Draft status and human decision ownership remain visible.
+- Supported with unresolved business items: valid explicit unknowns, disputed/pending items an identified unmapped category or an unavailable comparator in an otherwise valid source are shown with affected scope and owner. Do not invent missing values or complete unsupported comparisons. All four artifacts still expose the available evidence and limits.
+- Failed input or output validation: return a nonzero status and a diagnostic naming affected source/field/identity and necessary repair. Do not claim current success or leave earlier deliverables masquerading as current. Remove, invalidate or visibly mark the prior bundle stale; preserve authentic run evidence. The diagnostic/session record is the valid failure evidence; normal result files must not be claimed current.
+- Retry or changed input: fetch all three sources again. Confirm every required artifact actually exists, matches this run and is consistent before reporting success, even if inputs are unchanged. Rebuild missing/corrupted derived outputs or fail explicitly; do not fabricate lost past observations.
 
-- required runtime and dependencies;
-- the three Google Sheets URL inputs and how the skill identifies their source roles;
-- the exact execution command;
-- the output locations;
-- validation and safe-failure behavior.
+Validate duplicate semantic identities, coherent versions (ledger, budget period, revenue date), dates, monetary types/currency, state vocabulary and conditional blank amounts before using them. Signed decimals and reordered rows/columns must retain business meaning. Never include pending/disputed or unknown values in confirmed posted totals.
 
-The three Google Sheets are changing sources of truth. On every invocation, the skill must freshly read all three disclosed viewer-only Sheet URLs before calculation or output publication. A bundled, manually downloaded, or previously cached CSV may not be the primary input or a silent fallback when a live read fails.
+## Given, authored and submitted
 
-The implementation must process the freshly fetched source data end to end and produce all four deliverables. Accept the three Sheet URLs through the documented command or configuration without embedding credentials. Validate that every response is the expected tabular source rather than a login or error page. Do not rely on fixed download filenames, row counts, or column order: source names, extra columns, formats, dates, or snapshot versions may change.
+The starter provides this commission only. Obtain the interview entry, learner workspace/runtime and capture instructions from the facilitator, and the view-only business sources through the interview. The starter does not provide a solved Skill, teacher fixtures, reference answer or private prompt.
 
-Use one programmatic run rather than manual per-row handling or hard-coded expected output. Validate inputs before leaving usable deliverables, make unchanged reruns deterministic, and explain safe failure behavior.
+Implement and document one end-to-end command of your choice; state runtime/dependencies, URL roles, reporting context, outputs and declared failure status. The empty starter is not a working financial pipeline. The facilitator must verify advertised environment, source access, interview identity/export and Entire capture before an assessed run. Do not install unrequested infrastructure or share credentials to compensate for missing setup.
 
-Use the stakeholder interview to discover the applicable reporting rules, source semantics, exception handling, ownership, and human-review boundaries. Encode those requirements in the skill without copying private prompts or inventing missing business decisions.
-
-### Deliverables
-
-Write normalized source data to:
-
-- `deliverables/normalized/transactions.csv` with `transaction_id`, `date`, `account`, `category`, `description`, `amount`, `currency`, `status`, `source`, `source_version`, and `amount_status`;
-- `deliverables/normalized/budget.csv` with `period`, `category`, `budget_amount`, `currency`, `owner`, `review_rule`, `source`, and `source_version`; and
-- `deliverables/normalized/revenue.csv` with `date`, `source`, `metric`, `value`, `currency`, and `source_version`.
-
-Preserve every recognized source row. Extra source columns do not have to appear in normalized output unless they carry business meaning needed for traceability or review.
-
-Write the management brief to `deliverables/report.md`. The brief must satisfy the manager's request and the business rules discovered in the interview, support its conclusions with traceable source evidence, and identify unresolved questions that still require human review. Before publishing outputs, print each source URL or spreadsheet identity, sheet or tab identity, fetch timestamp, source version, and fetched row count so the existing Entire transcript captures the fetch evidence; record the same metadata in `report.md`. This console output is not an additional submitted log file.
-
-## Safety and submission rules
-
-- Treat all source systems as read-only.
-- If any Sheet cannot be freshly fetched or validated, fail safely; do not reuse an older local copy while presenting it as current.
-- Never transfer money, issue payment instructions, or write to a production ledger.
-- Never commit passwords, API keys, access tokens, cookies, private keys, or other secrets.
-- Do not commit downloaded credentials or local environment files.
-- Do not include hidden assessment material or attempt to extract the stakeholder's private prompt.
-- Commit all required implementation and deliverable files to your fork's `main` branch.
-- Keep the automatically managed `entire/checkpoints/v1` branch intact.
-
-Before pushing, confirm that all required paths exist, the skill validator passes, the documented command succeeds from a clean checkout, and the report agrees with the normalized CSV files. After pushing, confirm on GitHub that both `main` and `entire/checkpoints/v1` carry your work (step 7).
+Submit the Skill and four required artifact paths in your repository at one identified revision, plus the facilitator-bound interview record and genuine coding-session evidence where available. Preserve the Entire branch created during work. Record source/tool actions truthfully; a written claim or snapshot cannot replace an actual execution record. If interview/capture support is unavailable, report that setup issue rather than inventing a transcript. A manager review correction returns to the relevant input/calculation; financial approvals and external actions stay outside the task.
