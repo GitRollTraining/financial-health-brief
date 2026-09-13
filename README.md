@@ -2,6 +2,17 @@
 
 You have joined Quillhaven Academy as an automation specialist. Interview the Finance and Operations Manager to understand how the Daily Financial Health Brief is produced and to obtain only the data needed for the work at hand.
 
+## Get a working copy
+
+Public starter: [GitRollTraining/financial-health-brief](https://github.com/GitRollTraining/financial-health-brief). Use a Git-enabled terminal in the supplied Agent Skills-capable coding environment:
+
+```bash
+git clone https://github.com/GitRollTraining/financial-health-brief.git
+cd financial-health-brief
+```
+
+Read this README from that working-copy root. The starter supplies instructions and inputs; you create the Skill and its outputs. Keep credentials out of the repository. The facilitator supplies the supported runtime, read-only source access and assessed submission/capture route; report missing setup to that owner. The public starter is not an assigned submission destination. For a pre-S3 authoring trial, the designer selects the authorized Agent test identity, isolated workspace and test submission/capture route; no human learner or Classroom assignment is needed for that test.
+
 **Interview rule.** You conduct the stakeholder interview yourself, and the questions are yours. Do not connect a coding agent or any other AI to the interview to run, script, or automate it. The facilitator must provide a verified interview recording/export route and associate it with you and this project before interview evidence is assessed. A missing platform record is not your performance failure. A human-assessed interview must be conducted by you; an internal authoring Agent trial is a separate test.
 
 Build an Agent Skills-compliant skill named `daily-financial-health-brief`. Another operator must be able to use it to fetch the current data directly from the three disclosed Google Sheets URLs on every invocation, inspect the source schemas, normalize the three financial datasets, validate the inputs, and produce a traceable management brief without editing a source system or performing a financial action.
@@ -47,7 +58,7 @@ Validate duplicate semantic identities, coherent versions (ledger, budget period
 
 ## Given, authored and submitted
 
-The starter provides this commission only. Obtain the interview entry, learner workspace/runtime and capture instructions from the facilitator, and the view-only business sources through the interview. The starter does not provide a solved Skill, teacher fixtures, reference answer or private prompt.
+The starter provides this README with the commission and interview entry. Use the facilitator-provided workspace/runtime and capture instructions; obtain the view-only business sources and their meanings through the interview. The starter does not provide a solved Skill, teacher fixtures, reference answer or private prompt.
 
 Implement and document one end-to-end command of your choice; state runtime/dependencies, URL roles, reporting context, outputs and declared failure status. The empty starter is not a working financial pipeline. The facilitator must verify advertised environment, source access, interview identity/export and Entire capture before an assessed run. Do not install unrequested infrastructure or share credentials to compensate for missing setup.
 
