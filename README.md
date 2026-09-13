@@ -1,6 +1,6 @@
 # Daily Financial Health Brief — starter
 
-Read the [formal assignment](https://app.notion.com/p/3da0b700541e8137ab79f8cb26d1a827?pvs=204), [stakeholder interview](https://work-sim-alpha.catalyte.ai/s/interview-r62mbg) and the [shared course guide for session capture](https://classroom.google.com/c/ODcyMjA4NTkwNDk2/m/ODc0NzI2NzQzMzQ2/details). The assignment contains the required work, source routes and submission contract.
+Read the [formal assignment](https://private-pecorino-70e.notion.site/Project-A-Daily-Financial-Health-and-Budget-Brief-Learner-assignment-3da0b700541e8137ab79f8cb26d1a827?source=copy_link), [stakeholder interview](https://work-sim-alpha.catalyte.ai/s/interview-r62mbg) and the [shared course guide for session capture](https://classroom.google.com/c/ODcyMjA4NTkwNDk2/m/ODc0NzI2NzQzMzQ2/details). The assignment contains the required work, source routes and submission contract.
 
 ## Start
 
